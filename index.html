@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reference List</title>
+
+<title>Research References</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
 body{
 margin:0;
 padding:0;
-background-color:#56b0b2;
-overflow:hidden;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
 }
+
+/* MODAL */
 
 .modal{
 position:fixed;
@@ -21,39 +31,97 @@ left:0;
 width:100%;
 height:100%;
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
 visibility:hidden;
-padding:15px;
+opacity:0;
+transition:0.4s;
+padding:20px;
 box-sizing:border-box;
 }
 
 .modal.show{
 visibility:visible;
+opacity:1;
 }
+
+/* CARD */
 
 .modal-content{
-background:rgba(255,255,255,0.8);
-padding:20px;
-border-radius:10px;
-text-align:left;
-box-shadow:0 0 10px rgba(0,0,0,0.5);
+background:white;
+width:100%;
+max-width:900px;
 max-height:85vh;
 overflow-y:auto;
-overflow-x:hidden;
-overflow-wrap:break-word;
-width:100%;
-max-width:800px;
-box-sizing:border-box;
+border-radius:18px;
+box-shadow:0 25px 50px rgba(0,0,0,0.3);
+padding:30px;
+position:relative;
 }
 
-.hanging-indent{
+/* HEADER */
+
+.header{
+background:#1a237e;
+color:white;
+padding:15px;
+border-radius:12px;
+text-align:center;
+font-size:20px;
+font-weight:600;
+margin-bottom:20px;
+}
+
+/* CLOSE BUTTON */
+
+.close{
+position:absolute;
+top:15px;
+right:20px;
+font-size:20px;
+cursor:pointer;
+color:#555;
+}
+
+/* REFERENCES */
+
+.reference{
 margin-left:30px;
 text-indent:-30px;
-margin-bottom:-15px;
-font-family:'Times New Roman',Times,serif;
-line-height:2;
-overflow-wrap:break-word;
+padding-bottom:10px;
+margin-bottom:10px;
+border-bottom:1px solid #eee;
+line-height:1.8;
+font-size:14px;
+}
+
+/* BUTTON */
+
+button{
+background:#2e7dff;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:8px;
+font-size:15px;
+cursor:pointer;
+transition:0.25s;
+}
+
+button:hover{
+background:#1b5edb;
+transform:scale(1.05);
+}
+
+.center{
+text-align:center;
+margin-top:20px;
+}
+
+.note{
+text-align:center;
+color:#555;
+margin-top:10px;
 }
 
 </style>
@@ -64,114 +132,131 @@ overflow-wrap:break-word;
 <script>
 
 window.onload=function(){
-document.getElementById('firstModal').classList.add('show');
+document.getElementById("firstModal").classList.add("show");
 }
 
-function closeModal(){
-document.getElementById('firstModal').classList.remove('show');
-document.getElementById('secondModal').classList.add('show');
+function openFull(){
+document.getElementById("firstModal").classList.remove("show");
+document.getElementById("secondModal").classList.add("show");
 }
 
-function goBackToFirstModal(){
-document.getElementById('secondModal').classList.remove('show');
-document.getElementById('firstModal').classList.add('show');
+function goBack(){
+document.getElementById("secondModal").classList.remove("show");
+document.getElementById("firstModal").classList.add("show");
 }
 
 </script>
 
 
+<!-- FIRST MODAL -->
+
 <div class="modal" id="firstModal">
+
 <div class="modal-content">
 
-<h3 style="text-align:center">LIST OF REFERENCES USED IN THE POSTER</h3>
+<div class="header">
+Key References Used in the Study
+</div>
 
-<p class="hanging-indent">Alasqah, M. (2024). Efficacy of methylene blue-mediated antimicrobial photodynamic therapy on clinical and radiographic outcomes among patients with periodontal diseases. <i>Photodiagnosis and Photodynamic Therapy</i>.</p>
+<p class="reference">
+Alasqah, M. (2024). Efficacy of methylene blue-mediated antimicrobial photodynamic therapy on periodontal diseases. <i>Photodiagnosis and Photodynamic Therapy</i>.
+</p>
 
-<p class="hanging-indent">Songsantiphap, C., Vanichanan, J., Chatsuwan, T., Asawanonda, P., & Boontaveeyuwat, E. (2022). Methylene blue-mediated antimicrobial photodynamic therapy against extensively drug-resistant Gram-negative bacteria.</p>
+<p class="reference">
+Songsantiphap, C., Vanichanan, J., Chatsuwan, T., Asawanonda, P., & Boontaveeyuwat, E. (2022). Methylene blue-mediated antimicrobial photodynamic therapy against drug-resistant bacteria.
+</p>
 
-<p class="hanging-indent">Zada, L., Anwar, S., Imtiaz, S., Saleem, M., & Shah, A. A. (2024). Methylene blue-based antibacterial photodynamic inactivation of <i>Pseudomonas aeruginosa</i>.</p>
+<p class="reference">
+Zada, L., Anwar, S., Imtiaz, S., Saleem, M., & Shah, A. (2024). Methylene blue-based antibacterial photodynamic inactivation of <i>Pseudomonas aeruginosa</i>.
+</p>
 
-<br>
+<p class="note">
+Click below to view the complete reference list.
+</p>
 
-<p style="text-align:center"><u>Click button to view list of all references</u></p>
-
-<div style="text-align:center">
-<button onclick="closeModal()">→</button>
+<div class="center">
+<button onclick="openFull()">View All References</button>
 </div>
 
 </div>
 </div>
 
+
+
+<!-- SECOND MODAL -->
 
 <div class="modal" id="secondModal">
+
 <div class="modal-content">
 
-<h3 style="text-align:center">REFERENCES</h3>
+<span class="close" onclick="goBack()">✕</span>
 
-<p class="hanging-indent">Alasqah, M. (2024). Efficacy of methylene blue-mediated antimicrobial photodynamic therapy on clinical and radiographic outcomes among patients with periodontal diseases: A systematic review and meta-analysis of randomized controlled trials. <i>Photodiagnosis and Photodynamic Therapy, 46</i>, 104000. https://doi.org/10.1016/j.pdpdt.2024.104000</p>
+<div class="header">
+Complete Reference List
+</div>
 
-<p class="hanging-indent">Ansyori, A. (2021). History and Basic Principles of Photodynamic therapy Use in Ophthalmology. <i>Sriwijaya Journal of Ophthalmology, 5</i>(1), 168–176. https://doi.org/10.37275/sjo.v5i1.62</p>
+<p class="reference">Alasqah, M. (2024). Efficacy of methylene blue-mediated antimicrobial photodynamic therapy on clinical and radiographic outcomes among patients with periodontal diseases: A systematic review and meta-analysis of randomized controlled trials. <i>Photodiagnosis and Photodynamic Therapy, 46</i>, 104000.</p>
 
-<p class="hanging-indent">Bevans, R. (2020). One-way ANOVA | When and how to use it (with examples). Scribbr. https://www.scribbr.com/statistics/one-way-anova/</p>
+<p class="reference">Ansyori, A. (2021). History and Basic Principles of Photodynamic therapy Use in Ophthalmology. <i>Sriwijaya Journal of Ophthalmology, 5</i>(1), 168–176.</p>
 
-<p class="hanging-indent">Bhandari, P. (2021). Random assignment in experiments | Introduction & examples. Scribbr. https://www.scribbr.com/methodology/random-assignment/</p>
+<p class="reference">Bevans, R. (2020). One-way ANOVA | When and how to use it. Scribbr.</p>
 
-<p class="hanging-indent">Biology LibreTexts. (2024). Kirby-Bauer disk susceptibility test. https://bio.libretexts.org</p>
+<p class="reference">Bhandari, P. (2021). Random assignment in experiments. Scribbr.</p>
 
-<p class="hanging-indent">Bio-Rad. (2020). Disks for antibiotic susceptibility testing disks cartridge. Bio-Rad.</p>
+<p class="reference">Biology LibreTexts. (2024). Kirby-Bauer disk susceptibility test.</p>
 
-<p class="hanging-indent">Bognár, B., Spohn, R., & Lázár, V. (2024). Drug combinations targeting antibiotic resistance. <i>Npj Antimicrobials and Resistance</i>. https://doi.org/10.1038/s44259-024-00047-2</p>
+<p class="reference">Bio-Rad. (2020). Disks for antibiotic susceptibility testing.</p>
 
-<p class="hanging-indent">Clinical and Laboratory Standards Institute. (2023). <i>Performance standards for antimicrobial susceptibility testing</i> (35th ed.).</p>
+<p class="reference">Bognár, B., Spohn, R., & Lázár, V. (2024). Drug combinations targeting antibiotic resistance.</p>
 
-<p class="hanging-indent">Davies, S. (2024). The world is facing an antibiotic emergency: A data-led plan of action is needed now. <i>The Guardian</i>.</p>
+<p class="reference">Clinical and Laboratory Standards Institute. (2023). Performance standards for antimicrobial susceptibility testing.</p>
 
-<p class="hanging-indent">De Souza, R., Toebe, M., Mello, A., & Bittencourt, K. (2023). Sample size and Shapiro-Wilk test: An analysis for soybean grain yield. <i>European Journal of Agronomy</i>.</p>
+<p class="reference">Davies, S. (2024). The world is facing an antibiotic emergency.</p>
 
-<p class="hanging-indent">Dela Peña, L., Nacario, M., Bolo, N., & Rivera, W. (2022). Multiple antibiotic resistance in <i>Escherichia coli</i> isolates from fecal and water sources in Laguna Lake, Philippines.</p>
+<p class="reference">De Souza, R., Toebe, M., Mello, A., & Bittencourt, K. (2023). Sample size and Shapiro-Wilk test.</p>
 
-<p class="hanging-indent">Department of Health Philippines et al. (2019). <i>Philippine National Action Plan on Antimicrobial Resistance 2019–2023</i>.</p>
+<p class="reference">Dela Peña, L., Nacario, M., Bolo, N., & Rivera, W. (2022). Antibiotic resistance in <i>Escherichia coli</i> in Laguna Lake.</p>
 
-<p class="hanging-indent">Dikkatwar, M., Chand, S., Varghese, T., et al. (2024). Antimicrobial stewardship: Smart approach to combat antibiotic resistance.</p>
+<p class="reference">Department of Health Philippines et al. (2019). Philippine National Action Plan on Antimicrobial Resistance.</p>
 
-<p class="hanging-indent">Goncalves, A., Fernandes, J., Saavedra, M., et al. (2025). Photodiagnosis and Photodynamic Therapy.</p>
+<p class="reference">Dikkatwar, M., Chand, S., Varghese, T., et al. (2024). Antimicrobial stewardship.</p>
 
-<p class="hanging-indent">Guadalquiver, N. (2022). Bacolod inspects water, food sources amid more gastro illnesses. <i>Philippine News Agency</i>.</p>
+<p class="reference">Goncalves, A., Fernandes, J., Saavedra, M., et al. (2025). Photodiagnosis and Photodynamic Therapy.</p>
 
-<p class="hanging-indent">Lapid, N. (2024). Antibiotic resistance deaths to surge by 2025–2050, study says. <i>Reuters</i>.</p>
+<p class="reference">Guadalquiver, N. (2022). Bacolod inspects water and food sources.</p>
 
-<p class="hanging-indent">Monteiro, C., Gonçalves, J., Machado, G., et al. (2025). Viscous methylene blue formulation for antimicrobial photodynamic therapy in dentistry.</p>
+<p class="reference">Lapid, N. (2024). Antibiotic resistance deaths to surge.</p>
 
-<p class="hanging-indent">Muehler, D., Brandl, E., Hiller, K., et al. (2022). Membrane damage as mechanism of photodynamic inactivation using methylene blue.</p>
+<p class="reference">Monteiro, C., Gonçalves, J., Machado, G., et al. (2025). Methylene blue formulation for photodynamic therapy.</p>
 
-<p class="hanging-indent">Naddaf, M. (2024). 40 million deaths by 2050: Toll of drug-resistant infections to rise by 70%. <i>Nature</i>.</p>
+<p class="reference">Muehler, D., Brandl, E., Hiller, K., et al. (2022). Membrane damage mechanism in photodynamic inactivation.</p>
 
-<p class="hanging-indent">Philippines launches National Action Plan to Combat Antimicrobial Resistance 2024–2028. (2025).</p>
+<p class="reference">Naddaf, M. (2024). 40 million deaths by 2050 from drug-resistant infections.</p>
 
-<p class="hanging-indent">Pramanik, S., & Chattopadhyay, S. (2023). Copper complexes with diamine-based N4 donor bis-pyridine Schiff base ligands.</p>
+<p class="reference">Philippines launches National Action Plan to Combat Antimicrobial Resistance 2024–2028.</p>
 
-<p class="hanging-indent">Rodríguez-Melcón, C., Alonso-Calleja, C., García-Fernández, C., et al. (2021). Minimum inhibitory concentration and minimum bactericidal concentration for antimicrobials in <i>Listeria monocytogenes</i>.</p>
+<p class="reference">Pramanik, S., & Chattopadhyay, S. (2023). Copper complexes with Schiff base ligands.</p>
 
-<p class="hanging-indent">Salas, J., Jaberi-Douraki, M., Wen, X., & Volkova, V. (2020). Mathematical modeling of the inoculum effect.</p>
+<p class="reference">Rodríguez-Melcón, C., Alonso-Calleja, C., García-Fernández, C., et al. (2021). MIC and MBC for antimicrobials in <i>Listeria monocytogenes</i>.</p>
 
-<p class="hanging-indent">Sihombing, B., Bhatia, R., Srivastava, R., et al. (2023). Response to antimicrobial resistance in South-East Asia Region.</p>
+<p class="reference">Salas, J., Jaberi-Douraki, M., Wen, X., & Volkova, V. (2020). Mathematical modeling of the inoculum effect.</p>
 
-<p class="hanging-indent">Songsantiphap, C., Vanichanan, J., Chatsuwan, T., Asawanonda, P., & Boontaveeyuwat, E. (2022). Methylene blue-mediated antimicrobial photodynamic therapy against drug-resistant Gram-negative bacteria.</p>
+<p class="reference">Sihombing, B., Bhatia, R., Srivastava, R., et al. (2023). Antimicrobial resistance in Southeast Asia.</p>
 
-<p class="hanging-indent">Tankeshwar, A. (2024). Minimum inhibitory concentration (MIC) and minimum bactericidal concentration (MBC).</p>
+<p class="reference">Songsantiphap, C., Vanichanan, J., Chatsuwan, T., Asawanonda, P., & Boontaveeyuwat, E. (2022). Methylene blue photodynamic therapy against Gram-negative bacteria.</p>
 
-<p class="hanging-indent">World Health Organization South-East Asia. (2025). Antimicrobial resistance in South-East Asia.</p>
+<p class="reference">Tankeshwar, A. (2024). Minimum inhibitory concentration and minimum bactericidal concentration.</p>
 
-<p class="hanging-indent">Zhou, Y., Zhu, Y., & Wong, W. (2023). Statistical tests for homogeneity of variance for clinical trials.</p>
+<p class="reference">World Health Organization. (2025). Antimicrobial resistance in Southeast Asia.</p>
 
-<p class="hanging-indent">Zada, L., Anwar, S., Imtiaz, S., Saleem, M., & Shah, A. A. (2024). In vitro study: Methylene blue-based antibacterial photodynamic inactivation of <i>Pseudomonas aeruginosa</i>.</p>
+<p class="reference">Zhou, Y., Zhu, Y., & Wong, W. (2023). Statistical tests for homogeneity of variance.</p>
 
-<p class="hanging-indent">Zangirolami, A., Yerra, K., Yakovlev, V., Blanco, K., & Bagnato, V. (2024). Combined antibiotic and photodynamic therapies in <i>Pseudomonas aeruginosa</i>.</p>
+<p class="reference">Zada, L., Anwar, S., Imtiaz, S., Saleem, M., & Shah, A. (2024). Methylene blue antibacterial photodynamic inactivation.</p>
 
-<br>
+<p class="reference">Zangirolami, A., Yerra, K., Yakovlev, V., Blanco, K., & Bagnato, V. (2024). Combined antibiotic and photodynamic therapies.</p>
 
-<div style="text-align:center">
-<button onclick="goBackToFirstModal()">←</button>
+<div class="center">
+<button onclick="goBack()">Back</button>
 </div>
 
 </div>
